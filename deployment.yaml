@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proyecto-cicd
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: proyecto-cicd
+
+  template:
+    metadata:
+      labels:
+        app: proyecto-cicd
+
+    spec:
+      containers:
+        - name: proyecto-cicd
+          image: ghcr.io/manualfa58/proyecto-final-cicd:latest
+          ports:
+            - containerPort: 5000
